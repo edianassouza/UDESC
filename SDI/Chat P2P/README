@@ -1,0 +1,32 @@
+README
+
+Projeto: Chat P2P com Conexão UDP
+
+Autoras: Ediana Souza e Êrica Peters
+
+
+Sobre o código:
+	1 - O que caracteriza cada usuário no chat é o número da porta escolhido (explicando posteriormente. Por favor, leia, é importante).
+	2 - O arquivo de entrada não necessariamente precisa ter o nome da porta do usuário que irá mandar a mensagem. Sobre a extensão dos arquivos, em nossos testes, realizamos com .chat e .txt. Portanto, recomendamos o uso desta)
+	3 - Como o servidor, na arquitetura do chat P2P funciona como mediador, indicando o usuário que possui a mensagem desejada, não haverá criação de arquivos .serv. O servidor transmitira as informações necessárias somente enviando mensagens para a porta do usuário.
+	4 - Quando um cliente receber uma mensagem requisitada, a nomenclatura do arquivo recebida será: portaDeQuemRequisitou-contadorMensagensJaRecebidas.portaDeQuemEnviou (fez-se dessa forma pois optou-se por utilizar a porta como uma característica única de cada cliente)
+	5 - O número da porta escolhida para o servidor foi 9920. Portanto, não poderá ser escolhido este número para uso de porta para cliente.
+	6 - Não funciona corretamente em SDI-2. Pedimos que faça os testes em SDI-1.
+	7 - Para criar os arquivos, use o código oferecido pelo professor. Ele evita quebra de linha na última linha do arquivo. O código é: base64 /dev/urandom | head -c 1K > file1K.txt
+
+
+Instruções para Execução:
+	1- Extraia os arquivos da pasta ChatP2PEdianaErica
+	2- Compile todos os arquivos com o comando: make
+	3- Em um terminal, abra o servidor usando o comando: java UDPServer
+	4- No(s) outro(s) terminal(is) abra o(s) cliente(s) usando o comando: java UDPClient localhost <nº da porta>
+		Obs1: o programa nao irá compilar se não houver todos os parametros descritos. Um exemplo de execucao seria: javaUDPClient localhost 4001. 
+		Obs2: nos nossos testes, utilizamos um padrão de porta, começando em 4001 e incrementando cada vez que se queria um novo usuario no ambiente do chat. Logo, recomendamos você, caro leitor, que use essa abordagem também.
+
+	5- Para um cliente sair do chat, digite -1. Se desejar encerrar as conexões pelo servidor, digite Ctrl+C.
+	6- Para excluir os arquivos gerados na compilação e execução, utilize o comando: make clean. 
+		Obs1: como os arquivos de recebimento gerados contem a extensão como sendo a porta do usuário que enviou a mensagem, este tipo de arquivo não será excluído, visto que não há como saber previamente todas as portas que conterão no programa.
+	
+
+Outras observações importantes:
+	1 - Caso tenha alguma dúvida em relação a este trabalho, nos chame, de verdade. Iriamos adorar ajudar você. 

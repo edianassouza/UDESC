@@ -1,0 +1,31 @@
+Trabalho da disciplina de paradgima de programação, cujo resultado foi a produção de um sistema de catracas.
+
+
+
+
+EXPLICAÇÕES GERAIS SOBRE A LÓGICA DESENVOLVIDA
+
+- Em servidor.py, têm-se:
+	- json registers: pessoas que podem acessar as catracas. Os tipos significam: 1(professor), 2(servidor) e 3(aluno);
+	- acessos: inicialmente estará vazio, porém, no decorrer da execução será preenchedido com os acessos das catracas;
+	- '/': página inicial;
+	- '/TodosAcessos': exibe os novos acessos das catracas;
+	- '/getRegisters': exibe o que está em registers;
+	- '/novosAcessos': usado para enviar a mensagem para o servidor de quais novos acessos as catracas tiveram;
+
+
+- Em catraca.py, têm-se:
+	- Classe Catracas, que é a classe pai de outras três classes (CatracaProf, CatracaAluno e CatracaServidor);
+	- Em Catracas têm-se as seguintes funções:
+		- register: funciona para setar os valores em self.registers;
+		- getRegisters: request que receberá do servidor um JSON com todos os registros de pessoas que podem usar as catracas;
+		- novoAcesso: request que enviará para o servidor um novo acesso de alguma catraca;
+		- verificandoEntrada: verifica se, a pessoa que quer entrar em determinada catraca, tem autorização para entrar na mesma;
+		- retornoRegistro: apenas retorna um registro que será usado posterirmente na função novoAcesso;
+
+	- CatracaProf, CatracaAluno, CatracaServidor: nenhuma das classes filhas possuem funções específicas. Logo, herdam todas as funções da classe pai e somente possuem a descrição para a chamada do construtor na classe pai;
+
+	- main: - primeiro while: o objetivo desse primeiro laço de repetição é fazer a conexão inicial da catraca com o servidor.
+		- segundo while: o objetivo desse segundo laço de repetição é verificar se uma pessoa pode ultrapassar tal catraca, bem como atualizar o servidor sobre as pessoas que ultrapassaram a catraca
+
+

@@ -1,0 +1,47 @@
+#######################################################################################################  
+                                            README
+LEIA ATÉ O FINAL
+
+Projeto: Chat RabbitMQ.
+
+Autores: Êrica e Ediana.
+
+Instruções iniciais:
+  # p/ compilar o projeto mvn (esse comando irá instalar todas as dependências)
+  $ make
+
+  # p/ limpar o projeto mvn
+  $ make clean
+
+  # p/ limpar as dependências do projeto mvn
+  $ make cleanall
+
+  # Limpe o /tmp
+  $ rm /tmp/*
+
+Funcionamento:
+  O cliente envia um arquivo do /tmp para sua pasta de saida no Dropbox.
+  O servidor pega o arquivo da pasta de saida e coloca na pasta de entrada de cada cliente no DropBox.
+  Cada cliente pega o arquivo que está na sua pasta de entrada e baixa no /tmp com o nome /tmp/quem_enviou_a_msg-mensagem-cont_msg_recebidas.nome_do_cliente
+
+Instruções para Execução:
+  1- Extraia os arquivos no seu diretório.
+  
+  2- Compile todos os arquivos com o comando: make
+    Esse comando irá criar o diretório sdi-dropbox no local onde você o executou.
+  
+  3- Rode o servidor com o comando:
+    cd sdi-dropbox ; java -cp  target/sdi-dropbox-1.0-SNAPSHOT.jar:com/dropbox/core/dropbox-core-sdk/2.1.1/dropbox-core-sdk-2.1.1.jar:com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar com.wsudesc.app.Server;  cd -
+
+
+  4- Rode os clientes com o comando: 
+    cd sdi-dropbox ; java -cp  target/sdi-dropbox-1.0-SNAPSHOT.jar:com/dropbox/core/dropbox-core-sdk/2.1.1/dropbox-core-sdk-2.1.1.jar:com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar com.wsudesc.app.Client;  cd -
+
+  5- Para o cliente enviar uma mensagem é preciso que ele digite no terminal o nome do arquivo a ser passado. Uma mensagem aparece avisando quando um arquivo é enviado e/ou recebido.
+  Os arquivos que o cliente irá enviar precisam estar no diretório /tmp.
+  Ex: se você digitar por file.txt o cliente irá procurar por /tmp/file.txt
+  
+  6- Para sair do cliente ou servidor, pressione Crtl + Z.
+  
+  7- Para excluir os arquivos gerados na compilação e execução, utilize o comando: make clean
+    Obs: O make clean e o make cleanall irá limpar todos os arquivos que estão no /tmp. É possível que apareçam erros devido aos arquivos sem permissão para apagar.

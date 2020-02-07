@@ -1,0 +1,54 @@
+---------README---------
+	
+	LEIA ATÉ O FINAL
+
+Projeto: Chat RabbitMQ.
+
+Autores: Êrica e Ediana.
+
+Instalações e configurações (talvez) necessárias:
+	Em JAVA:
+	sudo apt-get install rabbitmq-server
+	
+	export CP=.:/usr/local/rabbitmq-jar/amqp-client-4.0.2.jar:/usr/local/rabbitmq-jar/slf4j-api-1.7.21.jar:/usr/local/rabbitmq-jar/slf4j-simple-1.7.22.jar
+
+	Em Python:
+	easy_install pip
+
+	pip install pika==0.11.0
+
+	sudo rabbitmqctl add_user sdi sdi
+	sudo rabbitmqctl set_user sdi administrator
+	sudo rabbitmqctl set_user_tags sdi administrator
+	sudo rabbitmqctl set_permissions -p / sdi ".*" ".*" ".*"
+
+Instruções para Execução:
+	1- Extraia os arquivos no seu diretório na máquina sdi-1.
+	2- Compile todos os arquivos com o comando: make
+	3- Em sdi-1 rode o servidor com o comando: python3 Servidor.py
+	4- Em sdi-1 rode o cliente Java com o comando: java -cp $CP Cliente.java 
+	5- Em sdi-1 ou sdi-2 rode o cliente Python com o comando: python3 Cliente.py
+	6- Para o cliente enviar uma mensagem é preciso que ele digite no terminal o nome do arquivo a ser passado. Uma mensagem aparece avisando quando um arquivo é enviado e/ou recebido.
+	6- Para sair do cliente ou servidor, pressione Crtl + Z.
+	7- Para excluir os arquivos gerados na compilação e execução, utilize o comando: make clean
+
+Sobre os arquivos de entrada e saída:
+	1- Utilize os comandos a seguir para gerar arquivos de entrada:
+
+		p/ arquivos de 1KB =    base64 /dev/urandom | head -c 1K > file1K.txt
+		p/ arquivos de 1MB =    base64 /dev/urandom | head -c 1M > file1M.tx
+
+	2- Os arquivos que o servidor gera são nomeados da seguinte forma:
+
+		nome_do_meu_cliente-numero_de_arquivos_que_ele_enviou.serv
+
+	3- Os arquivos que os clientes gravam são nomeados da seguinte forma:
+		 nome_do_meu_cliente - nome_de_quem_enviou_a_mensagem - numero_do_arquivo_de_quem_enviou.chat
+
+Observações Importantes:
+	
+	1- O nome dos clientes não podem conter o caracter &.
+	2- Não há número máximo de clientes.
+	3- Não implementamos a verificação do login (pode ter logins iguais).
+	4- O cliente em Java não funciona na sdi-2. Então pedimos para que realize os testes com o cliente java rodando em sdi-1 e o cliente python em sdi-1/sdi-2.
+	5- O cliente em Java demora alguns segundos para mandar a mensagem de 1MB.

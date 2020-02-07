@@ -1,0 +1,13 @@
+Banco (Projeto Lógico) 
+
+Cursos(#CodigoCurso, Nome, NumeroFases)
+Disciplinas(#CodigoDisciplina, CargaHoraria, Nome, &CPF)
+Ementa(#&CodigoCurso, #&CodigoDisciplina)
+Pessoas(#CPF, Nome, DataNascimento)
+Emails(#&CPF, #CodigoEmail, EndereçoEmail)
+Professores(#&CPF, CodigoProfessor)
+Alunos(#&CPF, Matricula, &CodigoCurso)
+Blocos(#CodigoBloco, Letra)
+Salas(#CodigoSala, Numero, TipoSala, &CodigoBloco, [NumeroCarteiras], [NumeroComputadores])
+Reservas(#Data, #HorarioInicio, #HorarioFinal, #&CPF, #&CodigoSala)
+Aulas(#&CodigoSala, #&CodigoDisciplina, #Dia, HorarioInicio, HorarioFinal)

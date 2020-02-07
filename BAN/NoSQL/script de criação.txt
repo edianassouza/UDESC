@@ -1,0 +1,399 @@
+﻿//CRIAÇÃO DE CURSOS
+
+CREATE (:cursos {codigoCurso: "1", nome: "engenharia civil", numeroFases: "10"})
+CREATE (:cursos {codigoCurso: "2", nome: "engenharia mecânica", numeroFases: "10"})
+CREATE (:cursos {codigoCurso: "3", nome: "engenharia elétrica", numeroFases: "10"})
+CREATE (:cursos {codigoCurso: "4", nome: "engenharia de produção", numeroFases: "10"})
+CREATE (:cursos {codigoCurso: "5", nome: "ciência da computação", numeroFases: "8"})
+
+
+//CRIAÇÃO DE DISCPLINAS
+
+CREATE (:disciplinas {codigoDisciplina: "1", cargaHoraria: "72", nome: "cálculo I"})
+CREATE (:disciplinas {codigoDisciplina: "2", cargaHoraria: "72", nome: "cálculo II"})
+CREATE (:disciplinas {codigoDisciplina: "3", cargaHoraria: "36", nome: "desenho técnico"})
+CREATE (:disciplinas {codigoDisciplina: "4", cargaHoraria: "72", nome: "banco de dados I"})
+CREATE (:disciplinas {codigoDisciplina: "5", cargaHoraria: "72", nome: "algoritmos"})
+CREATE (:disciplinas {codigoDisciplina: "6", cargaHoraria: "72", nome: "álgebra linear"})
+CREATE (:disciplinas {codigoDisciplina: "7", cargaHoraria: "72", nome: "estrutura de dados"})
+CREATE (:disciplinas {codigoDisciplina: "8", cargaHoraria: "35", nome: "metodologia científica"})
+CREATE (:disciplinas {codigoDisciplina: "9", cargaHoraria: "72", nome: "análise numérica"})
+CREATE (:disciplinas {codigoDisciplina: "10", cargaHoraria: "72", nome: "física I"})
+
+
+//CRIAÇÃO DE BLOCOS
+
+CREATE (:blocos {codigoBloco: "1", letra: "F"})
+CREATE (:blocos {codigoBloco: "2", letra: "K"})
+CREATE (:blocos {codigoBloco: "3", letra: "L"})
+CREATE (:blocos {codigoBloco: "4", letra: "G"})
+CREATE (:blocos {codigoBloco: "5", letra: "A"})
+
+
+//CRIAÇÃO DE SALAS
+
+CREATE (:salas {codigoSala: "1", numero: "101", tipoSala: "normal", numeroCarteiras: "40"})
+CREATE (:salas {codigoSala: "2", numero: "102", tipoSala: "normal", numeroCarteiras: "30"})
+CREATE (:salas {codigoSala: "3", numero: "205", tipoSala: "laboratório", numeroComputadores "20"})
+CREATE (:salas {codigoSala: "4", numero: "302", tipoSala: "laboratório", numeroComputadores "20"})
+CREATE (:salas {codigoSala: "5", numero: "303", tipoSala: "laboratório", numeroComputadores "25"})
+
+
+//CRIAÇÃO DE ALUNOS
+
+CREATE (:alunos {CPF: "12345678910", nome: "Marcos", dataNascimento: "12/03/1996", matricula: "123456"})
+CREATE (:alunos {CPF: "45678910111", nome: "Beatriz", dataNascimento: "27/09/1999", matricula: "789101"})
+CREATE (:alunos {CPF: "45619732451", nome: "Fátima", dataNascimento: "20/05/1982", matricula: "519357"})
+CREATE (:alunos {CPF: "15648952246", nome: "Ediana", dataNascimento: "12/02/1999", matricula: "162456"})
+CREATE (:alunos {CPF: "14725836910", nome: "Êrica", dataNascimento: "14/08/1999", matricula: "135489"})
+
+
+//CRIAÇÃO DE PROFESSORES
+
+CREATE (:professores {CPF: "10111213141", nome: "Laura", dataNascimento: "25/12/1985", codigoProfessor: "10"})
+CREATE (:professores {CPF: "15161718192", nome: "Kauan", dataNascimento: "14/07/1980", codigoProfessor: "11"})
+CREATE (:professores {CPF: "15689735914", nome: "Bianca", dataNascimento: "16/03/1975", codigoProfessor: "12"})
+CREATE (:professores {CPF: "15935748621", nome: "Ivanete", dataNascimento: "13/11/1962", codigoProfessor: "13"})
+CREATE (:professores {CPF: "75395148625", nome: "Maristela", dataNascimento: "18/01/1955", codigoProfessor: "14"})
+CREATE (:professores {CPF: "12678435192", nome: "Sandra", dataNascimento: "14/03/1974", codigoProfessor: "15"})
+
+
+//CRIAÇÃO DE EMAIL
+
+CREATE (:email {codigoEmail: "1", email: "marcos@gmail.com"})
+CREATE (:email {codigoEmail: "2", email: "bianca.prof@udesc.br"})
+CREATE (:email {codigoEmail: "3", email: "ivanete@udesc.br"})
+CREATE (:email {codigoEmail: "4", email: "ericapetersc@gmail.com"})
+CREATE (:email {codigoEmail: "5", email: "edianadasilvadesouza@gmail.com"})
+
+
+//CRIAÇÃO DE RESERVAS
+
+CREATE (:reservas {data: "26/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+CREATE (:reservas {data: "27/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+CREATE (:reservas {data: "28/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+CREATE (:reservas {data: "29/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+CREATE (:reservas {data: "30/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+CREATE (:reservas {data: "30/11/2018", horarioInicio: "10:10", horarioFinal: "11:50"})
+CREATE (:reservas {data: "10/12/2018", horarioInicio: "15:20", horarioFinal: "17:00"})
+CREATE (:reservas {data: "25/12/2018", horarioInicio: "15:20", horarioFinal: "17:00"})
+CREATE (:reservas {data: "26/12/2018", horarioInicio: "17:00", horarioFinal: "17:50"})
+CREATE (:reservas {data: "27/12/2018", horarioInicio: "15:20", horarioFinal: "17:00"})
+CREATE (:reservas {data: "28/12/2018", horarioInicio: "10:10", horarioFinal: "11:50"})
+
+
+//CRIAÇÃO DE AULAS
+
+CREATE(:aulas {data: "25/11/2018", horarioInicio: "09:20", horarioFinal: "11:00"})
+CREATE (:aulas {data: "25/11/2018", horarioInicio: "11:00", horarioFinal: "11:50"})
+CREATE (:aulas {data: "25/11/2018", horarioInicio: "13:30", horarioFinal: "15:10"})
+CREATE (:aulas {data: "25/11/2018", horarioInicio: "20:50", horarioFinal: "22:30"})
+CREATE (:aulas {data: "26/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+CREATE (:aulas {data: "27/11/2018", horarioInicio: "10:10", horarioFinal: "11:50"})
+CREATE (:aulas {data: "10/12/2018", horarioInicio: "13:30", horarioFinal: "15:10"})
+CREATE (:aulas {data: "11/12/2018", horarioInicio: "17:00", horarioFinal: "18:40"})
+CREATE (:aulas {data: "13/12/2018", horarioInicio: "09:20", horarioFinal: "11:00"})
+CREATE (:aulas {data: "14/12/2018", horarioInicio: "11:00", horarioFinal: "11:50"})
+
+
+//LIGAÇÃO DE DISCIPLINA COM PROFESSOR
+
+MATCH (d: disciplinas {codigoDisciplina: "1"})
+MATCH (p: professores {CPF: "10111213141"})
+CREATE (d)-[:lecionada]->(p)
+
+MATCH (d: disciplinas {codigoDisciplina: "2"})
+MATCH (p: professores {CPF: "15161718192"})
+CREATE (d)-[:lecionada]->(p)
+
+MATCH (d: disciplinas {codigoDisciplina: "3"})
+MATCH (p: professores {CPF: "15689735914"})
+CREATE (d)-[:lecionada]->(p)
+
+MATCH (d: disciplinas {codigoDisciplina: "4"})
+MATCH (p: professores {CPF: "15689735914"})
+CREATE (d)-[:lecionada]->(p)
+
+MATCH (d: disciplinas {codigoDisciplina: "5"})
+MATCH (p: professores {CPF: "15935748621"})
+CREATE (d)-[:lecionada]->(p)
+
+MATCH (d: disciplinas {codigoDisciplina: "6"})
+MATCH (p: professores {CPF: "12678435192"})
+CREATE (d)-[:lecionada]->(p)
+
+MATCH (d: disciplinas {codigoDisciplina: "7"})
+MATCH (p: professores {CPF: "75395148625"})
+CREATE (d)-[:lecionada]->(p)
+
+MATCH (d: disciplinas {codigoDisciplina: "8"})
+MATCH (p: professores {CPF: "15161718192"})
+CREATE (d)-[:lecionada]->(p)
+
+MATCH (d: disciplinas {codigoDisciplina: "9"})
+MATCH (p: professores {CPF: "12678435192"})
+CREATE (d)-[:lecionada]->(p)
+
+MATCH (d: disciplinas {codigoDisciplina: "10"})
+MATCH (p: professores {CPF: "12678435192"})
+CREATE (d)-[:lecionada]->(p)
+
+
+//LIGAÇÃO DE SALA COM BLOCO
+
+MATCH (s: salas {codigoSala: "1"})
+MATCH (b: blocos {codigoBloco: "1"})
+CREATE (s)-[:contido]->(b)
+
+MATCH (s: salas {codigoSala: "2"})
+MATCH (b: blocos {codigoBloco: "2"})
+CREATE (s)-[:contido]->(b)
+
+MATCH (s: salas {codigoSala: "3"})
+MATCH (b: blocos {codigoBloco: "3"})
+CREATE (s)-[:contido]->(b)
+
+MATCH (s: salas {codigoSala: "4"})
+MATCH (b: blocos {codigoBloco: "4"})
+CREATE (s)-[:contido]->(b)
+
+MATCH (s: salas {codigoSala: "5"})
+MATCH (b: blocos {codigoBloco: "5"})
+CREATE (s)-[:contido]->(b)
+
+
+//LIGAÇÃO DE EMAIL COM PESSOA (ALUNO OU PROFESSOR)
+
+MATCH (a: alunos {CPF: "12345678910"})
+MATCH (e: email {codigoEmail: "1"})
+CREATE (a)-[:possui]->(e)
+
+MATCH (p: professores {CPF: "15689735914"})
+MATCH (e: email {codigoEmail: "2"})
+CREATE (p)-[:possui]->(e)
+
+MATCH (p: professores {CPF: "15935748621"})
+MATCH (e: email {codigoEmail: "3"})
+CREATE (p)-[:possui]->(e)
+
+MATCH (a: alunos {CPF: "14725836910"})
+MATCH (e: email {codigoEmail: "4"})
+CREATE (a)-[:possui]->(e)
+
+MATCH (a: alunos {CPF: "15648952246"})
+MATCH (e: email {codigoEmail: "5"})
+CREATE (a)-[:possui]->(e)
+
+
+//LIGAÇÃO DE RESERVA COM PESSOAS E SALAS
+
+MATCH (r: reservas {data: "26/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+MATCH (a: alunos {CPF: "12345678910"})
+MATCH (s: salas {codigoSala: "1"})
+CREATE (r)-[:locada]->(a)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "30/11/2018", horarioInicio: "10:10", horarioFinal: "11:50"})
+MATCH (a: alunos {CPF: "45678910111"})
+MATCH (s: salas {codigoSala: "2"})
+CREATE (r)-[:locada]->(a)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "10/12/2018", horarioInicio: "15:20", horarioFinal: "17:00"})
+MATCH (a: alunos {CPF: "45619732451"})
+MATCH (s: salas {codigoSala: "3"})
+CREATE (r)-[:locada]->(a)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "27/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+MATCH (a: alunos {CPF: "45678910111"})
+MATCH (s: salas {codigoSala: "1"})
+CREATE (r)-[:locada]->(a)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "28/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+MATCH (a: alunos {CPF: "45619732451"})
+MATCH (s: salas {codigoSala: "1"})
+CREATE (r)-[:locada]->(a)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "29/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+MATCH (a: alunos {CPF: "15648952246"})
+MATCH (s: salas {codigoSala: "1"})
+CREATE (r)-[:locada]->(a)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "30/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+MATCH (a: alunos {CPF: "14725836910"})
+MATCH (s: salas {codigoSala: "1"})
+CREATE (r)-[:locada]->(a)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "25/12/2018", horarioInicio: "15:20", horarioFinal: "17:00"})
+MATCH (p: professores {CPF: "12678435192"})
+MATCH (s: salas {codigoSala: "1"})
+CREATE (r)-[:locada]->(p)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "26/12/2018", horarioInicio: "17:00", horarioFinal: "17:50"})
+MATCH (p: professores {CPF: "15935748621"})
+MATCH (s: salas {codigoSala: "2"})
+CREATE (r)-[:locada]->(p)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "27/12/2018", horarioInicio: "15:20", horarioFinal: "17:00"})
+MATCH (p: professores {CPF: "75395148625"})
+MATCH (s: salas {codigoSala: "4"})
+CREATE (r)-[:locada]->(p)
+CREATE (r)-[:ocorre]->(s)
+
+MATCH (r: reservas {data: "28/12/2018", horarioInicio: "10:10", horarioFinal: "11:50"})
+MATCH (p: professores {CPF: "75395148625"})
+MATCH (s: salas {codigoSala: "5"})
+CREATE (r)-[:locada]->(p)
+CREATE (r)-[:ocorre]->(s)
+
+//LIGAÇÃO DE CURSO E DISCIPLINA POR EMENTA
+
+MATCH (c: cursos {codigoCurso: "1"})
+MATCH (d: disciplinas {codigoDisciplina: "1"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "1"})
+MATCH (d: disciplinas {codigoDisciplina: "2"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "2"})
+MATCH (d: disciplinas {codigoDisciplina: "3"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "2"})
+MATCH (d: disciplinas {codigoDisciplina: "4"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "5"})
+MATCH (d: disciplinas {codigoDisciplina: "1"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "5"})
+MATCH (d: disciplinas {codigoDisciplina: "2"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "5"})
+MATCH (d: disciplinas {codigoDisciplina: "4"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "5"})
+MATCH (d: disciplinas {codigoDisciplina: "7"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "3"})
+MATCH (d: disciplinas {codigoDisciplina: "9"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "5"})
+MATCH (d: disciplinas {codigoDisciplina: "5"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "4"})
+MATCH (d: disciplinas {codigoDisciplina: "10"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "5"})
+MATCH (d: disciplinas {codigoDisciplina: "6"})
+CREATE (c)-[:ementa]->(d)
+
+MATCH (c: cursos {codigoCurso: "4"})
+MATCH (d: disciplinas {codigoDisciplina: "8"})
+CREATE (c)-[:ementa]->(d)
+
+
+//LIGAÇÃO DE AULAS COM SALAS E DISCIPLINAS
+
+MATCH (a: aulas {data: "25/11/2018", horarioInicio: "09:20", horarioFinal: "11:00"})
+MATCH (d: disciplinas {codigoDisciplina: "1"})
+MATCH (s: salas {codigoSala: "1"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+MATCH (a: aulas {data: "25/11/2018", horarioInicio: "11:00", horarioFinal: "11:50"})
+MATCH (d: disciplinas {codigoDisciplina: "2"})
+MATCH (s: salas {codigoSala: "2"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+MATCH (a: aulas {data: "25/11/2018", horarioInicio: "13:30", horarioFinal: "15:10"})
+MATCH (d: disciplinas {codigoDisciplina: "3"})
+MATCH (s: salas {codigoSala: "3"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+MATCH (a: aulas {data: "25/11/2018", horarioInicio: "20:50", horarioFinal: "22:30"})
+MATCH (d: disciplinas {codigoDisciplina: "4"})
+MATCH (s: salas {codigoSala: "4"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+MATCH (a: aulas {data: "26/11/2018", horarioInicio: "07:30", horarioFinal: "09:10"})
+MATCH (d: disciplinas {codigoDisciplina: "5"})
+MATCH (s: salas {codigoSala: "5"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+MATCH (a: aulas {data: "27/11/2018", horarioInicio: "10:10", horarioFinal: "11:50"})
+MATCH (d: disciplinas {codigoDisciplina: "6"})
+MATCH (s: salas {codigoSala: "1"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+MATCH (a: aulas {data: "10/12/2018", horarioInicio: "13:30", horarioFinal: "15:10"})
+MATCH (d: disciplinas {codigoDisciplina: "7"})
+MATCH (s: salas {codigoSala: "2"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+MATCH (a: aulas {data: "11/12/2018", horarioInicio: "17:00", horarioFinal: "18:40"})
+MATCH (d: disciplinas {codigoDisciplina: "8"})
+MATCH (s: salas {codigoSala: "3"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+MATCH (a: aulas {data: "13/12/2018", horarioInicio: "09:20", horarioFinal: "11:00"})
+MATCH (d: disciplinas {codigoDisciplina: "9"})
+MATCH (s: salas {codigoSala: "4"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+MATCH (a: aulas {data: "14/12/2018", horarioInicio: "11:00", horarioFinal: "11:50"})
+MATCH (d: disciplinas {codigoDisciplina: "10"})
+MATCH (s: salas {codigoSala: "5"})
+CREATE (a)-[:pertence]->(d)
+CREATE (a)-[:acontece]->(s)
+
+
+//LIGAÇÃO DE ALUNOS E CURSOS
+MATCH (a: alunos {CPF: "12345678910"})
+MATCH (c: cursos {codigoCurso:"1"})
+CREATE (a)-[: matriculado]->(c)
+
+MATCH (a: alunos {CPF: "45678910111"})
+MATCH (c: cursos {codigoCurso:"2"})
+CREATE (a)-[: matriculado]->(c)
+
+MATCH (a: alunos {CPF: "45619732451"})
+MATCH (c: cursos {codigoCurso:"3"})
+CREATE (a)-[: matriculado]->(c)
+
+MATCH (a: alunos {CPF: "15648952246"})
+MATCH (c: cursos {codigoCurso:"5"})
+CREATE (a)-[: matriculado]->(c)
+
+MATCH (a: alunos {CPF: "14725836910"})
+MATCH (c: cursos {codigoCurso:"4"})
+CREATE (a)-[: matriculado]->(c)
+
+
+
+
+
+

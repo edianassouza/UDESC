@@ -1,0 +1,69 @@
+README
+
+Projeto: Chat Multicast Centralizado com Conexão TCP
+
+Autoras: Ediana Souza e Êrica Peters
+
+Sobre o código:
+	1- As classes Client e MulticastListener representam o funcionamento do cliente. Em Client é verificado se há algum arquivo .chat para ser lido. Caso exista, o método read é utilizado para ler esse arquivo e depois a mensagem lida é enviada por conexão TCP para o Servidor. Em MulticastListener é verificado quando chega uma mensagem por MUlticast do Servidor, que é salva (através do método Writer) em um arquivo .client.
+	2- As classes Server e serverThread representam o funcionamento do servidor. Em Server é armazenado um vetor com n processos da classe serverThread e o vetor de nomes utilizados. Em serverThread, o Servidor recebe as mensagens de um client específico, salva em um arquivo .serv e manda para os demais clientes por Multicast.
+
+Instruções para Execução:
+	1- Extraia os arquivos da pasta ChatMulticastCentralizado no seu diretório
+	2- Compile todos os arquivos com o comando: make
+	3- Em um terminal, abra o servidor usando o comando: java Server
+	4- No(s) outro(s) terminal(is) abra o(s) cliente(s) usando o comando: java Client <ip-do-servidor> 2772
+		Obs: 2772 é a porta default. Se desejar alterá-la, é preciso mudar a linha 25 de Client e a linha 28 de Server. Crie um cliente de cada vez. E após rodar o comando, coloque o nome de entrada. Esse nome é único, logo, se já estiver sendo utilizado por outro cliente, a conexão será fechada.
+	5- Agora utilize o comando: mv DiretorioDoArquivo/nome_do_arquivo.chat DiretorioAtual/nome_do_arquivo.chat
+		Obs: Ao colocar o chatNomeClient_contEnviados.chat na pasta atual, o cliente cujo nome está no arquivo irá ler o seu conteúdo e mandar por conexão TCP para o servidor que enviará por Multicast para os outros clientes. No tópico seguinte iremos explicar como as mensagens serão salvas.
+	6- Para um cliente sair do chat, mova (com o comando anterior) um arquivo chatNomeClient_contEnviados.chat com o conteúdo: quit
+	7- Para excluir os arquivos gerados na compilação e execução, utilize o comando: make clean
+
+Sobre os arquivos de entrada e saída:
+	1- Os arquivos lidos pelo cliente e enviados para o servidor têm o nome nomeClient-contEnviados.chat
+		Por exemplo: se temos um cliente chamada Paul, o primeiro arquivo precisa ser na forma chatpaul-01.chat e o segundo na forma chatpaul-02.chat.
+		Obs: Se movermos para a pasta chatpaul-02.chat antes de chatpaul-01.chat, o cliente não irá ler a mensagem, pois está esperando por chatpaul-01.chat.
+	2- O servidor recebe um arquivo de um cliente e antes de mandar para os outros clientes, salva na forma nomeCliente-contDoCliente.serv
+		Por exemplo: o primeiro arquivo que Paul mandar será salvo como paul-01.serv e o segundo como paul-02.serv
+	3- Cada cliente recebe a mensagem do servidor e salva em um arquivo chamado nomeDeQuemRecebeu-contRecebidos.clientIdDeQuemRecebeu
+		Por exemplo: Mary foi a segunda cliente a entrar (id 02). A primeira mensagem que receber vai ser salva com o nome mary-01.client02 e a segunda mensagem mary-02.client02.
+
+Sobre os arquivos.chat:
+	1- Nossa implementação só aceita arquivos de até 64KB. Sabemos que viola um dos critérios de avaliação mas não conseguimos realizar a implementação de forma diferente.
+	2- Não pode conter os acentos, tabulações ou os caracteres: $,%,#,\t, \n, \r, pois eles são utilizados para verificação de ids, nomes e do texto.
+	3- A entrada não deve terminar com uma linha em branco.
+	4- O tamanho máximo permitido do arquivo é de 64KB.
+
+Outras observações:
+	As mensagens que aparecem no terminal iniciadas com $ não fazem parte da comunicação entre os clientes do chat, elas representam a comunicação inicial do servidor com o cliente e servem apenas para a inicialização. Com exeção das mensagens que avisam quando um cliente entra ou sai do chat, essas são enviada por multicast pois todos os clientes precisam vê-la.
+
+Exemplo com 3 clientes:
+	Os arquivos para esse exemplo estão na pasta ArquivosTestes.
+
+	Paul entra no chat - é o client01
+	John entra no chat - é o client02
+	Mary entra no chat - é o client03
+	Coloca chatpaul-01.chat na pasta
+	Servidor cria paul-01.serv e manda para John e Mary
+	John recebe e cria john-01.client02
+	Mary recebe e cria mary-01.client03
+	Coloca chatjohn-01.chat na pasta
+	Servidor cria john-01.serv e manda para Paul e Mary
+	Paul recebe e cria paul-01.client01
+	Mary recebe e cria mary-02.client03
+	Coloca chatmary-01.chat na pasta
+	Servidor cria mary-01.serv e manda para Paul e John
+	Paul recebe e cria paul-02.client01
+	John recebe e cria john-02.client03
+	Coloca chatpaul-02.chat na pasta
+	Servidor cria paul-02.serv, manda para John e Mary e fecha a conexão com Paul
+	John recebe e cria john-03.client02
+	Mary recebe e cria mary-03.client03
+	Paul fecha a conexão com o servidor
+	Coloca chatjohn-02.chat na pasta
+	Servidor cria john-02.serv, manda para Mary e fecha a conexão com John
+	Mary recebe e cria mary-04.client03
+	John fecha a conexão com o servidor
+	Coloca chatmary-02.chat na pasta
+	Servidor cria mary-02.serv e fecha a conexão com Mary
+	Mary fecha a conexão com o servidor
